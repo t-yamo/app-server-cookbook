@@ -1,6 +1,7 @@
 name :web_server
 
-runlist
+run_list(
   "role[base]",
   "recipe[web_server]"
+)
 

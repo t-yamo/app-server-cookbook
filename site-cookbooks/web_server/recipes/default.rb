@@ -5,12 +5,21 @@
 
 include_recipe "sakura::iptables_pre"
 
-simple_tables_rule "RH-Firewall-1-INPUT" do
+simple_iptables_rule "RH-Firewall-1-INPUT" do
   rule [
     "-m state --state NEW -m tcp -p tcp --dport 80",
     "-m state --state NEW -m tcp -p tcp --dport 443",
   ]
-  direction [ "INPUT", "FORWARD" ]
+  direction "INPUT"
+  jump "ACCEPT"
+end
+
+simple_iptables_rule "RH-Firewall-1-INPUT" do
+  rule [
+    "-m state --state NEW -m tcp -p tcp --dport 80",
+    "-m state --state NEW -m tcp -p tcp --dport 443",
+  ]
+  direction "FORWARD"
   jump "ACCEPT"
 end
 

@@ -1,3 +1,3 @@
-name    :web_server
-depends :sakura
+name    "web_server"
+depends "sakura"
 

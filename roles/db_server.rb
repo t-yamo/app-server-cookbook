@@ -1,6 +1,7 @@
 name :db_server
 
-runlist
+run_list(
   "role[base]",
   "recipe[db_server]"
+)
 
