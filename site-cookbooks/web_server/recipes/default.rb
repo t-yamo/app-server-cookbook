@@ -17,11 +17,5 @@ simple_iptables_rule "RH-Firewall-1-INPUT" do
   jump "ACCEPT"
 end
 
-simple_iptables_rule "RH-Firewall-1-FORWARD" do
-  rule iptables_web_server_arr
-  direction "FORWARD"
-  jump "ACCEPT"
-end
-
 include_recipe "sakura::iptables_post"
 

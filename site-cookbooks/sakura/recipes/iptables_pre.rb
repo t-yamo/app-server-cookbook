@@ -3,6 +3,14 @@
 
 ## simple_iptables
 
+simple_iptables_policy "INPUT" do
+  policy "DROP"
+end
+
+simple_iptables_policy "FORWARD" do
+  policy "DROP"
+end
+
 # workaround: simple_iptables don't support multiple direction
 iptables_pre_arr = [
   "-i lo",
@@ -19,12 +27,6 @@ iptables_pre_arr = [
 simple_iptables_rule "RH-Firewall-1-INPUT" do
   rule iptables_pre_arr
   direction "INPUT"
-  jump "ACCEPT"
-end
-
-simple_iptables_rule "RH-Firewall-1-FORWARD" do
-  rule iptables_pre_arr
-  direction "FORWARD"
   jump "ACCEPT"
 end
 
