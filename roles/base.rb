@@ -7,6 +7,12 @@ run_list(
 )
 
 default_attributes(
+  :app_server => {
+    :network => "172.20.10.0/24",
+    :shared_server => "172.20.10.13",
+    :shared_dir_server => "/exports",
+    :shared_dir_client => "share"         # /mnt/***
+  },
   :openssh => {
     :client => {
       :g_s_s_a_p_i_authentication => "yes",

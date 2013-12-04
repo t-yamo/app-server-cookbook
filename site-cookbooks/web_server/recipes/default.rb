@@ -19,3 +19,17 @@ end
 
 include_recipe "sakura::iptables_post"
 
+## autofs
+
+package "autofs" do
+  action [ :install, :upgrade ]
+end
+
+execute "auto.master" do
+  command "echo '/mnt /etc/auto.mnt --timeout=300' >> /etc/auto.master"
+end
+
+execute "auto.mnt" do
+  command "echo 'share -fstype=nfs,rw #{node["app_server"]["shared_server"]}:/mnt/#{node["app_server"]["shared_dir_client"]}' >> /etc/auto.mnt"
+end
+
