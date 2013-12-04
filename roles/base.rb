@@ -1,15 +1,26 @@
-name "base"
+name :base
 
 runlist
   "recipe[user]",
   "recipe[sudo]",
-  "recipe[openssh]"
+  "recipe[openssh]",
+  "recipe[simple_iptables]"
 
 default_attributes(
-  "openssh" : {
-    "server" : {
-      "permit_root_login" : "no"
-      "password_authentication" : "no"
+  ## user
+  # to data_bags/users
+  ## sudo
+  :authorization : {
+    :sudo : {
+      :users : [ "devuser" ],
+      :passwordless : "true"
+    }
+  },
+  ## openssh
+  :openssh : {
+    :server : {
+      :permit_root_login : "no",
+      :password_authentication : "no"
     }
   }
 )
