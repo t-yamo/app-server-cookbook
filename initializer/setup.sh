@@ -99,4 +99,5 @@ echo "05. # knife solo prepare user@targethost"
 echo "06. # knife solo cook root@targethost"
 echo "      Enter the root password about 10 times."
 echo "      If you created trusted user, you can skip entering password."
+echo "07. remove ${KEYPAIR_DIR}."
 
