@@ -20,7 +20,7 @@ file "/etc/sudoers.d/devuser" do
   owner    "root"
   group    "root"
   mode     0400
-  content  "devuser ALL=(ALL) ALL"
+  content  "devuser ALL=(ALL) NOPASSWD:ALL"
 end
 
 directory "/home/devuser/.ssh" do

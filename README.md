@@ -27,6 +27,9 @@ But this cookbooks revoke ssh login from root, you should use "knife solo cook d
  * Enter the root password about 10 times.
  * If you created trusted user, you can skip entering password.
 
+## Note
+
+* TODO: avoid passwordless sudo.
 
 ## Refs.
 
