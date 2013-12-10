@@ -15,16 +15,17 @@ But this cookbooks revoke ssh login from root, you should use "knife solo cook d
 * (Case: vagrant) execute "vagrant up" in "initializer".
 * (Case: not vagrant) root login to dev, and execute "initializer/setup.sh root /tmp/devuser"
 * devuser login to dev.
+* remove keypair_dir.
 * clone app-server-cookbooks from git.
 * copy /home/devuser/.ssh/id_rsa to <chef>/site-cookbooks/initial_users/files/default/devuser/id_rsa"
 * copy /home/devuser/.ssh/id_rsa.pub to <chef>/site-cookbooks/initial_users/files/default/devuser/id_rsa.pub"
 * cd app-server-cookbooks.
-* "berks install --path cookbooks".
+* "knife configure"
+* "berks install --path cookbooks"
 * "knife solo prepare user@targethost"
 * "knife solo cook root@targethost"
  * Enter the root password about 10 times.
  * If you created trusted user, you can skip entering password.
-* remove keypair_dir.
 
 
 ## Refs.
