@@ -1,2 +1,3 @@
 /cookbooks/*/
+/site-cookbooks/initial_users/files/default/devuser/id_rsa*
 

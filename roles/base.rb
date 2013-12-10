@@ -13,6 +13,9 @@ default_attributes(
     :shared_dir_server => "/exports",
     :shared_dir_client => "share"         # /mnt/***
   },
+  :user => {
+    :ssh_keygen => "false"
+  },
   :openssh => {
     :client => {
       :g_s_s_a_p_i_authentication => "yes",
@@ -23,6 +26,9 @@ default_attributes(
       :protocol => 2,
       :syslog_facility => "AUTHPRIV",
       :permit_root_login => "no",
+      :r_s_a_authentication => "yes",
+      :pubkey_authentication => "yes",
+      :authorized_keys_file => ".ssh/authorized_keys",
       :password_authentication => "yes",
       :challenge_response_authentication => "no",
       :g_s_s_a_p_i_authentication => "yes",
