@@ -2,7 +2,7 @@ name :db_server
 
 run_list(
   "role[base]",
-  "recipe[nfs]",
+  "recipe[nfs::server]",
   "recipe[db_server]"
 )
 
