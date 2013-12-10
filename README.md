@@ -2,9 +2,12 @@
 
 ## Description
 
-* 172.20.10.11 Dev Server
+* 172.20.10.11 Dev Server (Chef)
 * 172.20.10.12 Web Server
 * 172.20.10.13 DB Server / Storage Server
+
+You can "knife solo cook root@targethost" for the first time.
+But this cookbooks revoke ssh login from root, you should use "knife solo cook devuser@targethost" from the second time.
 
 ## Setup
 
