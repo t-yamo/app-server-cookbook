@@ -26,7 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define :dev do |host|
     host.vm.hostname = "dev"
     host.vm.network :private_network, ip: "172.20.10.11"
-    host.vm.provision :shell, path: "setup.sh", args: [ "/vagrant", "vagrant" ]
+    host.vm.provision :shell, path: "setup.sh", args: [ "/vagrant" ]
     host.vm.provision :shell, inline: $script
   end
 end

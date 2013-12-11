@@ -11,9 +11,9 @@ But this cookbooks revoke ssh login from root, you should use "knife solo cook d
 
 ## Setup
 
-* put id_rsa_gituser, id_rsa_gituser.pub, id_rsa_devuser, id_rsa_devuser.pub to keypaier_dir.
+* put id_rsa_gituser, id_rsa_gituser.pub, id_rsa_devuser, id_rsa_devuser.pub to keypaier_dir(e.g. /vagrant).
 * (Case: vagrant) execute "vagrant up" in "initializer".
-* (Case: not vagrant) root login to dev, and execute "initializer/setup.sh root /tmp/devuser"
+* (Case: not vagrant) root login to dev, and execute "initializer/setup.sh /vagrant"
 * devuser login to dev.
 * remove keypair_dir.
 * clone app-server-cookbooks from git.

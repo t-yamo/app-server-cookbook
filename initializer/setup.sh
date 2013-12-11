@@ -1,17 +1,12 @@
 #!/bin/sh
 
 DEV_USER=devuser
+ROOT_HOME=/root
 
 KEYPAIR_DIR=$1
-INITIAL_USER=$2
 
 if [ -n "${KEYPAIR_DIR}" ]; then
-  echo "usage: setup.sh <KEYPAIR_DIR> <INITIAL_USER>"
-  exit 1
-fi
-
-if [ -n "${INITIAL_USER}" ]; then
-  echo "usage: setup.sh <KEYPAIR_DIR> <INITIAL_USER>"
+  echo "usage: setup.sh <KEYPAIR_DIR>
   exit 1
 fi
 
@@ -65,12 +60,11 @@ rbenv rehash
 gem install chef knife-solo berkshelf --no-ri --no-rdoc
 rbenv rehash
 
-# copy key pair for git
-#mkdir -p ~${INITIAL_USER}/.ssh
-#chown ${INITIAL_USER}:${INITIAL_USER} ~${INITIAL_USER}/.ssh
-#chmod 700 ~${INITIAL_USER}/.ssh
-#install -o ${INITIAL_USER} -g ${INITIAL_USER} -m 600 ${KEYPAIR_DIR}/id_rsa_git ~${INITIAL_USER}/.ssh/id_rsa
-#install -o ${INITIAL_USER} -g ${INITIAL_USER} -m 644 ${KEYPAIR_DIR}/id_rsa.pub_git ~${INITIAL_USER}/.ssh/id_rsa.pub
+ copy key pair for git
+mkdir -p ${ROOT_HOME}/.ssh
+chmod 700 ${ROOT_HOME}/.ssh
+install -o root -g root -m 600 ${KEYPAIR_DIR}/id_rsa_git ${ROOT_HOME}/.ssh/id_rsa_git
+install -o root -g root -m 644 ${KEYPAIR_DIR}/id_rsa_git.pub ${ROOT_HOME}/.ssh/id_rsa_git.pub
 
 # copy key pair for devuser
 mkdir -p /home/${DEV_USER}/.ssh
@@ -92,7 +86,7 @@ service sshd restart
 echo "Next Step..."
 echo "01. login ${DEV_USER} to dev"
 echo "02. remove ${KEYPAIR_DIR}."
-echo "03. clone cookbooks from git."
+echo "03. clone cookbooks from git. (modify ~root/.ssh/config for ~root/.ssh/id_rsa_git)"
 echo "04. (app-server-cookbook) copy /home/${DEV_USER}/.ssh/id_rsa to <chef>/site-cookbooks/initial_users/files/default/${DEV_USER}/id_rsa"
 echo "05. (app-server-cookbook) copy /home/${DEV_USER}/.ssh/id_rsa.pub to <chef>/site-cookbooks/initial_users/files/default/${DEV_USER}/id_rsa.pub"
 echo "06. cd git project (cloned cookbooks)."
