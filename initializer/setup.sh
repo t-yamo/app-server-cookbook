@@ -55,7 +55,7 @@ rbenv rehash
 gem install chef knife-solo berkshelf --no-ri --no-rdoc
 rbenv rehash
 
- copy key pair for git
+# copy key pair for git
 mkdir -p ${ROOT_HOME}/.ssh
 chmod 700 ${ROOT_HOME}/.ssh
 install -o root -g root -m 600 ${KEYPAIR_DIR}/id_rsa_gituser ${ROOT_HOME}/.ssh/id_rsa_gituser
