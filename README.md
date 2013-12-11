@@ -1,8 +1,11 @@
-# Cookbooks for App Server
+# Cookbooks for App Servers
 
 ## Description
 
-* 172.20.10.11 Dev Server ( Chef )
+These cookbooks are configurations for Dev/Web/DB servers.
+The developers and the operators uses Dev server as start of operations.
+
+* 172.20.10.11 Dev server ( for development and operation )
  * script
     * git
     * group : staff
@@ -29,7 +32,7 @@
     * munin
     * munin-node
 
-* 172.20.10.12 Web Server
+* 172.20.10.12 Web server
  * base
     * initial_user
         * group : staff
@@ -47,7 +50,7 @@
     * php
     * munin-node
 
-* 172.20.10.13 DB Server / Storage Server
+* 172.20.10.13 DB server / Storage server
  * base
     * initial_user
         * group : staff
