@@ -27,6 +27,21 @@ But this cookbooks revoke ssh login from root, you should use "knife solo cook d
  * Enter the root password about 10 times.
  * If you created trusted user, you can skip entering password.
 
+### Windows
+
+* Virtual Box
+ * https://www.virtualbox.org/wiki/Downloads
+* Vagrant
+ * http://www.vagrantup.com/downloads.html
+* Chef
+ * http://www.getchef.com/chef/install/
+* Ruby DevKit
+ * http://rubyinstaller.org/downloads
+  * ruby dk.rb init
+  * ruby dk.rb install
+* knife-solo
+ * gem install knife-solo --no-rdoc --no-ri
+
 ## Note
 
 * TODO: avoid passwordless sudo.

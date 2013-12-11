@@ -3,19 +3,14 @@
 DEV_USER=devuser
 ROOT_HOME=/root
 
-KEYPAIR_DIR=$1
-
-if [ -n "${KEYPAIR_DIR}" ]; then
-  echo "usage: setup.sh <KEYPAIR_DIR>
-  exit 1
-fi
+KEYPAIR_DIR=${1?"usage: setup.sh <KEYPAIR_DIR>"}
 
 # install git
 yum install -y git
 
 # add group staff
 groupadd -g 601 staff
-usermod -a -G staff ${INITIAL_USER}
+usermod -a -G staff root
 
 # create devuser
 useradd -u 601 -g staff -G wheel ${DEV_USER}
@@ -63,8 +58,8 @@ rbenv rehash
  copy key pair for git
 mkdir -p ${ROOT_HOME}/.ssh
 chmod 700 ${ROOT_HOME}/.ssh
-install -o root -g root -m 600 ${KEYPAIR_DIR}/id_rsa_git ${ROOT_HOME}/.ssh/id_rsa_git
-install -o root -g root -m 644 ${KEYPAIR_DIR}/id_rsa_git.pub ${ROOT_HOME}/.ssh/id_rsa_git.pub
+install -o root -g root -m 600 ${KEYPAIR_DIR}/id_rsa_gituser ${ROOT_HOME}/.ssh/id_rsa_gituser
+install -o root -g root -m 644 ${KEYPAIR_DIR}/id_rsa_gituser.pub ${ROOT_HOME}/.ssh/id_rsa_gituser.pub
 
 # copy key pair for devuser
 mkdir -p /home/${DEV_USER}/.ssh
