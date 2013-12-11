@@ -21,7 +21,12 @@
  * TODO
     * git
     * gitolite
+    * nginx (sorry page, munin console)
+    * php
+    * postfix
+    * mysql
     * munin
+    * munin-node
 * 172.20.10.12 Web Server
  * base
     * initial_user
@@ -36,8 +41,8 @@
  * TODO
     * nginx
     * php
-    * munin-node
     * postfix
+    * munin-node
 * 172.20.10.13 DB Server / Storage Server
  * base
     * initial_user
