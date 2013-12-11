@@ -84,8 +84,8 @@ But this cookbooks revoke ssh login from root, you should use "knife solo cook d
  * http://www.getchef.com/chef/install/
 * Ruby DevKit
  * http://rubyinstaller.org/downloads
-  * ruby dk.rb init
-  * ruby dk.rb install
+    * ruby dk.rb init
+    * ruby dk.rb install
 * knife-solo
  * gem install knife-solo --no-rdoc --no-ri
 
