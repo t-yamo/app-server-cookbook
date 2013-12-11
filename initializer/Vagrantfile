@@ -7,8 +7,6 @@ VAGRANTFILE_API_VERSION = "2"
 
 ##### REQUIREMENT #####
 
-# need /vagrant/id_rsa_gituser
-# need /vagrant/id_rsa_gituser.pub
 # need /vagrant/id_rsa_devuser
 # need /vagrant/id_rsa_devuser.pub
 
@@ -26,7 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define :dev do |host|
     host.vm.hostname = "dev"
     host.vm.network :private_network, ip: "172.20.10.11"
-    host.vm.provision :shell, path: "setup.sh", args: "/vagrant"
+    host.vm.provision :shell, path: "setup.sh"
     host.vm.provision :shell, inline: $script
   end
 end
