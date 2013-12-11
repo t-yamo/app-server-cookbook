@@ -47,7 +47,7 @@
         * ~/.ssh/id_rsa,id_rsa.pub,authorized_keys
     * openssh
  * web_server
-    * iptables for web server in sakura
+    * iptables for db server in sakura
     * nfs ( /exports )
  * TODO
     * mysql
