@@ -2,9 +2,56 @@
 
 ## Description
 
-* 172.20.10.11 Dev Server (Chef)
+* 172.20.10.11 Dev Server ( Chef )
+ * script
+  * group : staff
+  * user  : devuser
+  * rbenv
+  * ruby-buid
+  * ruby 2.x
+  * echo 'options single-request-reopen' >> /etc/resolv.conf
+  * bundler
+  * chef
+  * ~root/.ssh/id_rsa_gituser,id_rsa_gituser.pub
+  * ~devuser/.ssh/id_rsa,id_rsa.pub,authorized_keys
+  * /etc/ssh/sshd_config
+   * RSAAuthentication
+   * PubkeyAuthentication
+   * AuthorizedKeysFile
+ * TODO
+  * git
+  * gitolite
+  * munin
 * 172.20.10.12 Web Server
+ * base
+  * initial_user
+   * group : staff
+   * user  : devuser
+   * /etc/sudoers.d/devuser
+   * ~/.ssh/id_rsa,id_rsa.pub,authorized_keys
+  * openssh
+ * web_server
+  * iptables for web server in sakura
+  * autofs ( /mnt/share )
+ * TODO
+  * nginx
+  * php
+  * munin-node
+  * postfix
 * 172.20.10.13 DB Server / Storage Server
+ * base
+  * initial_user
+   * group : staff
+   * user  : devuser
+   * /etc/sudoers.d/devuser
+   * ~/.ssh/id_rsa,id_rsa.pub,authorized_keys
+  * openssh
+ * web_server
+  * iptables for web server in sakura
+  * nfs ( /exports )
+ * TODO
+  * mysql
+  * munin-node
 
 You can "knife solo cook root@targethost" for the first time.
 But this cookbooks revoke ssh login from root, you should use "knife solo cook devuser@targethost" from the second time.
