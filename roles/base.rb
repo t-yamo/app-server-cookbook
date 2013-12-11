@@ -7,12 +7,6 @@ run_list(
 )
 
 default_attributes(
-  :web_server => {
-    :shared_server => "172.20.10.13"
-  },
-  :db_server => {
-    :network => "172.20.10.0/24"
-  },
   :user => {
     :ssh_keygen => "false"
   },
