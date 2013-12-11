@@ -4,6 +4,7 @@
 
 * 172.20.10.11 Dev Server ( Chef )
  * script
+    * git
     * group : staff
     * user  : devuser
     * rbenv
@@ -18,13 +19,13 @@
         * RSAAuthentication
         * PubkeyAuthentication
         * AuthorizedKeysFile
- * TODO
-    * git
-    * gitolite
-    * nginx (sorry page, munin console)
-    * php
+ * installed on sakura
     * postfix
-    * mysql
+ * TODO
+    * gitolite
+    * nginx (for development, sorry page, munin console)
+    * php (for development)
+    * mysql (for development)
     * munin
     * munin-node
 * 172.20.10.12 Web Server
@@ -38,10 +39,11 @@
  * web_server
     * iptables for web server in sakura
     * autofs ( /mnt/share )
+ * installed on sakura
+    * postfix
  * TODO
     * nginx
     * php
-    * postfix
     * munin-node
 * 172.20.10.13 DB Server / Storage Server
  * base
