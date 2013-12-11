@@ -80,8 +80,8 @@ But this cookbooks revoke ssh login from root, you should use "knife solo cook d
  * $ cd ~/work/app-server-cookbook
  * $ berks install --path cookbooks
  * $ knife solo cook root@localhost # From the second time, root -> devuser
-    * **#### WARN: You can no longer ssh login as root. Please use devuser. ####**
-    * **#### WARN: You should try login as devuser before logout from current root session. ####**
+    * **WARN: You can no longer ssh login as root. Please use devuser.**
+    * **WARN: You should try login as devuser before logout from current root session.**
 
 * As devuser in dev
  * targethost = 172.20.10.12, 172.20.10.13
