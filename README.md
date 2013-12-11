@@ -65,14 +65,24 @@ But this cookbooks revoke ssh login from root, you should use "knife solo cook d
 
 ## Setup
 
-* put id_rsa_gituser, id_rsa_gituser.pub, id_rsa_devuser, id_rsa_devuser.pub to keypaier_dir(e.g. /vagrant).
-* (Case: vagrant) execute "vagrant up" in "initializer".
+* (Case: vagrant) execute "vagrant up" in "initializer", and root login.
 * (Case: not vagrant) root login to dev, and execute "initializer/setup.sh /vagrant"
+
+* $ mkdir ~/work
+* $ cd ~/work
+* $ git clone <app-server-cookbooks>
+* upload id_rsa_devuser to <app-server-cookbooks>/site-cookbooks/initial_users/files/default/devuser/id_rsa
+* upload id_rsa_devuser.pub to <app-server-cookbooks>/site-cookbooks/initial_users/files/default/devuser/id_rsa.pub
+* $ cd ~/work/<app-server-cookbooks>
+* $ knife configure
+* $ knife solo cook root@localhost
+
+
 * devuser login to dev.
 * remove keypair_dir.
 * clone app-server-cookbooks from git.
-* copy /home/devuser/.ssh/id_rsa to <chef>/site-cookbooks/initial_users/files/default/devuser/id_rsa"
-* copy /home/devuser/.ssh/id_rsa.pub to <chef>/site-cookbooks/initial_users/files/default/devuser/id_rsa.pub"
+* copy /home/devuser/.ssh/id_rsa to <chef>/site-cookbooks/initial_users/files/default/devuser/id_rsa
+* copy /home/devuser/.ssh/id_rsa.pub to <chef>/site-cookbooks/initial_users/files/default/devuser/id_rsa.pub
 * cd app-server-cookbooks.
 * "knife configure"
 * "berks install --path cookbooks"
