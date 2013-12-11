@@ -90,16 +90,16 @@ service sshd restart
 
 # message
 echo "Next Step..."
-echo "01. login devuser to dev"
+echo "01. login ${DEV_USER} to dev"
 echo "02. remove ${KEYPAIR_DIR}."
 echo "03. clone cookbooks from git."
-echo "04. copy /home/${DEV_USER}/.ssh/id_rsa to <chef>/site-cookbooks/initial_users/files/default/devuser/id_rsa"
-echo "05. copy /home/${DEV_USER}/.ssh/id_rsa.pub to <chef>/site-cookbooks/initial_users/files/default/devuser/id_rsa.pub"
+echo "04. (app-server-cookbook) copy /home/${DEV_USER}/.ssh/id_rsa to <chef>/site-cookbooks/initial_users/files/default/${DEV_USER}/id_rsa"
+echo "05. (app-server-cookbook) copy /home/${DEV_USER}/.ssh/id_rsa.pub to <chef>/site-cookbooks/initial_users/files/default/${DEV_USER}/id_rsa.pub"
 echo "06. cd git project (cloned cookbooks)."
-echo "07. # knife configure"
-echo "08. # berks install --path cookbooks"
-echo "09. # knife solo prepare user@targethost"
-echo "10. # knife solo cook root@targethost"
+echo "07. \$ knife configure"
+echo "08. \$ berks install --path cookbooks"
+echo "09. \$ knife solo prepare user@targethost"
+echo "10. \$ knife solo cook root@targethost"
 echo "      Enter the root password about 10 times."
 echo "      If you created trusted user, you can skip entering password."
 

@@ -21,7 +21,7 @@ include_recipe "sakura::iptables_post"
 
 ## autofs
 
-directory "/mnt/#{node["app_server"]["shared_dir_client"]}" do
+directory "/mnt/#{node["web_server"]["shared_dir_client"]}" do
   owner "root"
   group "staff"
   mode 02775
@@ -41,6 +41,6 @@ execute "auto.master" do
 end
 
 execute "auto.mnt" do
-  command "echo '#{node["app_server"]["shared_dir_client"]} -fstype=nfs,rw #{node["app_server"]["shared_server"]}:#{node["app_server"]["shared_dir_server"]}' > /etc/auto.mnt"
+  command "echo '#{node["web_server"]["shared_dir_client"]} -fstype=nfs,rw #{node["web_server"]["shared_server"]}:#{node["web_server"]["shared_dir_server"]}' > /etc/auto.mnt"
 end
 

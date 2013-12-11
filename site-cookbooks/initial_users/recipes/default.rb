@@ -5,7 +5,7 @@ group "staff" do
   gid      601
 end
 
-user_account "devuser" do
+user_account node["initial_users"]["dev_user"] do
   uid      601
   gid      "staff"
 end
@@ -13,39 +13,39 @@ end
 group "wheel" do
   action   :modify
   append   true
-  members  [ "devuser" ]
+  members  [ node["initial_users"]["dev_user"] ]
 end
 
-file "/etc/sudoers.d/devuser" do
+file "/etc/sudoers.d/" + node["initial_users"]["dev_user"] do
   owner    "root"
   group    "root"
   mode     0400
-  content  "devuser ALL=(ALL) NOPASSWD:ALL"
+  content  node["initial_users"]["dev_user"] + " ALL=(ALL) NOPASSWD:ALL"
 end
 
-directory "/home/devuser/.ssh" do
-  owner    "devuser"
+directory "/home/" + node["initial_users"]["dev_user"] + "/.ssh" do
+  owner    node["initial_users"]["dev_user"]
   group    "staff"
   mode     0700
 end
 
-cookbook_file "/home/devuser/.ssh/id_rsa" do
-  source   "devuser/id_rsa"
-  owner    "devuser"
+cookbook_file "/home/" + node["initial_users"]["dev_user"] + "/.ssh/id_rsa" do
+  source   node["initial_users"]["dev_user"] + "/id_rsa"
+  owner    node["initial_users"]["dev_user"]
   group    "staff"
   mode     0600
 end
 
-cookbook_file "/home/devuser/.ssh/id_rsa.pub" do
-  source   "devuser/id_rsa.pub"
-  owner    "devuser"
+cookbook_file "/home/" + node["initial_users"]["dev_user"] + "/.ssh/id_rsa.pub" do
+  source   node["initial_users"]["dev_user"] + "/id_rsa.pub"
+  owner    node["initial_users"]["dev_user"]
   group    "staff"
   mode     0644
 end
 
-cookbook_file "/home/devuser/.ssh/authorized_keys" do
-  source   "devuser/id_rsa.pub"
-  owner    "devuser"
+cookbook_file "/home/" + node["initial_users"]["dev_user"] + "/.ssh/authorized_keys" do
+  source   node["initial_users"]["dev_user"] + "/id_rsa.pub"
+  owner    node["initial_users"]["dev_user"]
   group    "staff"
   mode     0600
 end
