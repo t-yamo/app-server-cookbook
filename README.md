@@ -6,7 +6,7 @@ These cookbooks are configurations for Dev/Web/DB servers.
 The developers and the operators uses Dev server as start of operations.
 
 * 172.20.10.11 Dev server ( for development and operation )
- * script
+ * script:initializer/setup.sh
     * git
     * group : staff
     * rbenv
@@ -15,7 +15,7 @@ The developers and the operators uses Dev server as start of operations.
     * echo 'options single-request-reopen' >> /etc/resolv.conf
     * bundler
     * chef
- * base
+ * roles:base
     * initial_user
         * group : staff
         * user  : devuser
@@ -33,14 +33,14 @@ The developers and the operators uses Dev server as start of operations.
     * munin-node
 
 * 172.20.10.12 Web server
- * base
+ * roles:base
     * initial_user
         * group : staff
         * user  : devuser
         * /etc/sudoers.d/devuser
         * ~devuser/.ssh/id_rsa,id_rsa.pub,authorized_keys
     * openssh
- * web_server
+ * roles:web_server
     * iptables for web server in sakura
     * autofs ( /mnt/share )
  * installed on sakura
@@ -51,14 +51,14 @@ The developers and the operators uses Dev server as start of operations.
     * munin-node
 
 * 172.20.10.13 DB server / Storage server
- * base
+ * roles:base
     * initial_user
         * group : staff
         * user  : devuser
         * /etc/sudoers.d/devuser
         * ~devuser/.ssh/id_rsa,id_rsa.pub,authorized_keys
     * openssh
- * web_server
+ * roles:db_server
     * iptables for db server in sakura
     * nfs ( /exports )
  * TODO
@@ -74,7 +74,7 @@ The developers and the operators uses Dev server as start of operations.
 You can "knife solo cook root@targethost" as root for the first time.
 But this cookbooks revoke ssh login from root, you should use "knife solo cook devuser@targethost" as devuser from the second time.
 
-* As root in dev (From the second time, root -> devuser)
+* As root in Dev (From the second time, root -> devuser)
  * $ mkdir ~/work
  * $ cd ~/work
  * $ git clone [app-server-cookbook]
@@ -86,7 +86,7 @@ But this cookbooks revoke ssh login from root, you should use "knife solo cook d
     * **WARN: You can no longer ssh login as root. Please use devuser.**
     * **WARN: You should try login as devuser before logout from current root session.**
 
-* As devuser in dev
+* As devuser in Dev
  * targethost = 172.20.10.12, 172.20.10.13
     * $ knife solo prepare root@targethost # From the second time, root -> devuser
     * $ knife solo cook root@targethost # From the second time, root -> devuser
@@ -112,7 +112,7 @@ But this cookbooks revoke ssh login from root, you should use "knife solo cook d
 
 * Security Issues
  * Enabled PasswordAuthentication, RSAAuthentication and PubkeyAuthentication. 
- * devuser can sudo with NOPASSWD.
+ * devuser can sudo without password (with NOPASSWD option).
 
 ## Refs.
 
