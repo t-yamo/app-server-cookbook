@@ -17,7 +17,7 @@ end
 # for admin (gitolite user)
 
 cookbook_file HOME + "/" + ADMIN + ".pub" do
-  source   GITOLITE + "/id_rsa.pub"
+  source   GITOLITE + "/" + ADMIN + ".pub"
   owner    GITOLITE
   group    GITOLITE
   mode     0644
