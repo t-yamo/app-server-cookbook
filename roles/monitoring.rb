@@ -1,7 +1,7 @@
 name :monitoring
 
 run_list(
-  "recipe[munin::server]"
+  "recipe[munin_wrapper::server]"
 )
 
 default_attributes(
