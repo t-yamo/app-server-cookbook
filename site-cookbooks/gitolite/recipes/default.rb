@@ -5,6 +5,14 @@ HOME="/home/gitolite"
 GITOLITE="gitolite"
 ADMIN="admin"
 
+# install packages for gitolite
+
+%w{ perl-core }.each do |pkg|
+  package "#{pkg}" do
+    action :install
+  end
+end
+
 # for gitolite (OS user)
 # OS user "gitolite" can use shell ONLY by "su - git"
 # from some other userid on the same server.
