@@ -1,3 +1,4 @@
 /cookbooks
-/site-cookbooks/initial_users/files/default/devuser/id_rsa*
+/site-cookbooks/initial_users/files/default/devuser/*
+/site-cookbooks/gitolite/files/default/gitolite/*
 
