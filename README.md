@@ -22,6 +22,11 @@ The developers and the operators uses Dev server as start of operations.
         * /etc/sudoers.d/devuser
         * ~devuser/.ssh/id_rsa,id_rsa.pub,authorized_keys
     * openssh
+    * simple_iptables
+ * roles:dev_server
+    * dev_server
+        * iptables for dev server in sakura
+    * gitolite
  * installed on sakura
     * postfix
  * TODO
@@ -41,8 +46,9 @@ The developers and the operators uses Dev server as start of operations.
         * ~devuser/.ssh/id_rsa,id_rsa.pub,authorized_keys
     * openssh
  * roles:web_server
-    * iptables for web server in sakura
-    * autofs ( /mnt/share )
+    * web_server
+        * iptables for web server in sakura
+        * autofs ( /mnt/share )
  * installed on sakura
     * postfix
  * TODO
@@ -59,8 +65,10 @@ The developers and the operators uses Dev server as start of operations.
         * ~devuser/.ssh/id_rsa,id_rsa.pub,authorized_keys
     * openssh
  * roles:db_server
-    * iptables for db server in sakura
-    * nfs ( /exports )
+    * nfs::server
+    * db_server
+        * iptables for db server in sakura
+        * nfs ( /exports )
  * TODO
     * mysql
     * munin-node

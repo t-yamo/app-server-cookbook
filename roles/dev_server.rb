@@ -2,6 +2,7 @@ name :dev_server
 
 run_list(
   "role[base]",
-  "recipe[dev_server]"
+  "recipe[dev_server]",
+  "recipe[gitolite]"
 )
 
