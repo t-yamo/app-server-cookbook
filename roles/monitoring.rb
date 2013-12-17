@@ -1,14 +1,14 @@
-name :monitoring
+name :monitoring_target
 
 run_list(
-  "recipe[munin_wrapper::server]"
+  "recipe[munin_wrapper::client]"
 )
 
 default_attributes(
-  :munin => {
-    :web_server_port => 8080,
-    :web_server => "nginx",
-    :server_auth_method => "htauth"
+  :munin_wrapper => {
+    :munin_servers => [
+      { :fqdn => "dev", :ipaddress => "172.20.10.11" }
+    ]
   }
 )
 

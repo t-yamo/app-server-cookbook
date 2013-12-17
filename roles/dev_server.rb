@@ -5,7 +5,7 @@ run_list(
   "recipe[dev_server]",
   "role[repository]",
   "role[web]",
-  "role[monitoring]",
-  "role[monitoring_target]"
+  "role[monitoring_server]",
+  "role[monitoring]"
 )
 

@@ -4,7 +4,7 @@ run_list(
   "role[base]",
   "recipe[web_server]",
   "role[web]",
-  "role[monitoring_target]"
+  "role[monitoring]"
 )
 
 default_attributes(

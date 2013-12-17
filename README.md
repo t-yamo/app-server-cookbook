@@ -19,7 +19,7 @@ The developers and the operators uses Dev server as start of operations.
     * installed on sakura
         * postfix
     * role:base
-        * recipe\:yum::epel
+        * recipe: yum::epel
         * recipe:initial_user
             * group : staff
             * user  : devuser
@@ -35,10 +35,10 @@ The developers and the operators uses Dev server as start of operations.
         * recipe:gitolite
     * role:web
         * recipe:nginx (for development, sorry page, munin console)
-    * role:monitoring
+    * role:monitoring_server
         * recipe:munin_wrapper::server
-    * role:monitoring_target
-        * recipe:munin:client
+    * role:monitoring
+        * recipe:munin_wrapper::client
  * TODO
     * php (for development)
     * mysql (for development)
@@ -48,7 +48,7 @@ The developers and the operators uses Dev server as start of operations.
     * installed on sakura
         * postfix
     * role:base
-        * recipe\:yum::epel
+        * recipe: yum::epel
         * initial_user
             * group : staff
             * user  : devuser
@@ -63,15 +63,15 @@ The developers and the operators uses Dev server as start of operations.
         * autofs ( /mnt/share )
     * role:web
         * recipe:nginx
-    * role:monitoring_target
-        * recipe:munin:client
+    * role:monitoring
+        * recipe:munin_wrapper::client
  * TODO
     * php
 
 * 172.20.10.13 DB server / Storage server
  * role:db_server
     * role:base
-        * recipe\:yum::epel
+        * recipe: yum::epel
         * initial_user
             * group : staff
             * user  : devuser
@@ -85,8 +85,8 @@ The developers and the operators uses Dev server as start of operations.
             * perl-core
         * iptables for db server in sakura
         * nfs ( /exports )
-    * role:monitoring_target
-        * recipe:munin:client
+    * role:monitoring
+        * recipe:munin_wrapper::client
  * TODO
     * mysql
 

@@ -4,7 +4,7 @@ run_list(
   "role[base]",
   "recipe[nfs::server]",
   "recipe[db_server]",
-  "role[monitoring_target]"
+  "role[monitoring]"
 )
 
 default_attributes(
