@@ -1,6 +1,10 @@
 # Cookbook Name:: db_server
 # Recipe:: default
 
+## packages
+
+include_recipe "sakura::packages"
+
 ## simple_iptables
 
 include_recipe "sakura::iptables_pre"
