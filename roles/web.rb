@@ -1,7 +1,8 @@
 name :web
 
 run_list(
-  "recipe[nginx]"
+  "recipe[nginx]",
+  "recipe[php]"
 )
 
 default_attributes(

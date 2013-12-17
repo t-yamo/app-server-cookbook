@@ -35,12 +35,12 @@ The developers and the operators uses Dev server as start of operations.
         * recipe:gitolite
     * role:web
         * recipe:nginx (for development, sorry page, munin console)
+        * recipe:php (for development)
     * role:monitoring_server
         * recipe:munin_wrapper::server
     * role:monitoring
         * recipe:munin_wrapper::client
  * TODO
-    * php (for development)
     * mysql (for development)
 
 * 172.20.10.12 Web server
@@ -63,10 +63,10 @@ The developers and the operators uses Dev server as start of operations.
         * autofs ( /mnt/share )
     * role:web
         * recipe:nginx
+        * recipe:php
     * role:monitoring
         * recipe:munin_wrapper::client
  * TODO
-    * php
 
 * 172.20.10.13 DB server / Storage server
  * role:db_server
