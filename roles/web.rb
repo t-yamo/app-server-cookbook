@@ -1,4 +1,4 @@
-name :partial_nginx
+name :web
 
 run_list(
   "recipe[nginx]"

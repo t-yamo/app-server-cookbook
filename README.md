@@ -28,8 +28,9 @@ The developers and the operators uses Dev server as start of operations.
         * recipe:simple_iptables
     * recipe:dev_server
         * iptables for dev server in sakura
-    * recipe:gitolite
-    * roles:partial_web
+    * role:repository
+        * recipe:gitolite
+    * role:web
         * recipe:nginx (for development, sorry page, munin console)
  * TODO
     * php (for development)
@@ -52,8 +53,8 @@ The developers and the operators uses Dev server as start of operations.
     * recipe:web_server
         * iptables for web server in sakura
         * autofs ( /mnt/share )
-    * role:partial_web
-        * recipe:nginx (for development, sorry page, munin console)
+    * role:web
+        * recipe:nginx
  * TODO
     * php
     * munin-node
