@@ -88,7 +88,7 @@ But this cookbooks revoke ssh login from root, you should use "knife solo cook d
  * $ git clone [app-server-cookbook]
  * upload id_rsa_devuser to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/devuser/id_rsa
  * upload id_rsa_devuser.pub to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/devuser/id_rsa.pub
- * upload id_rsa_gitolite_admin to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/gitolite/admin.pub
+ * upload id_rsa_gitolite_admin.pub to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/gitolite/admin.pub
  * $ cd ~/work/app-server-cookbook
  * $ berks install --path cookbooks
  * $ knife solo cook root@localhost # From the second time, root -> devuser
