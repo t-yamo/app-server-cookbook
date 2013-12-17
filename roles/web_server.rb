@@ -2,7 +2,8 @@ name :web_server
 
 run_list(
   "role[base]",
-  "recipe[web_server]"
+  "recipe[web_server]",
+  "role[partial_web]"
 )
 
 default_attributes(
