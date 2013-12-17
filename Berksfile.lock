@@ -10,9 +10,7 @@
       "locked_version": "1.3.0"
     },
     "simple_iptables": {
-      "locked_version": "0.3.0",
-      "git": "git://github.com/dcrosta/cookbook-simple-iptables.git",
-      "ref": "82a78520230bbd58915a67c91942bfd111cfea25"
+      "locked_version": "0.3.0"
     },
     "nfs": {
       "locked_version": "0.5.0"
@@ -22,6 +20,9 @@
     },
     "munin": {
       "locked_version": "1.4.0"
+    },
+    "php": {
+      "locked_version": "1.2.6"
     },
     "iptables": {
       "locked_version": "0.12.0"
@@ -49,6 +50,15 @@
     },
     "apache2": {
       "locked_version": "1.8.14"
+    },
+    "xml": {
+      "locked_version": "1.2.0"
+    },
+    "mysql": {
+      "locked_version": "4.0.10"
+    },
+    "openssl": {
+      "locked_version": "1.1.0"
     }
   }
 }

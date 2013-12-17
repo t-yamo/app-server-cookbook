@@ -2,8 +2,9 @@ site :opscode
 cookbook 'yum'
 cookbook 'user'
 cookbook 'openssh'
-cookbook 'simple_iptables', git: "git://github.com/dcrosta/cookbook-simple-iptables.git"
+cookbook 'simple_iptables'
 cookbook 'nfs'
 cookbook 'nginx'
 cookbook 'munin'
+cookbook 'php'
 
