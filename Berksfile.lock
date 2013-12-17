@@ -1,5 +1,8 @@
 {
   "sources": {
+    "yum": {
+      "locked_version": "2.4.4"
+    },
     "user": {
       "locked_version": "0.3.0"
     },
@@ -16,6 +19,9 @@
     },
     "nginx": {
       "locked_version": "2.0.8"
+    },
+    "munin": {
+      "locked_version": "1.4.0"
     },
     "iptables": {
       "locked_version": "0.12.0"
@@ -41,8 +47,8 @@
     "runit": {
       "locked_version": "1.4.6"
     },
-    "yum": {
-      "locked_version": "2.4.4"
+    "apache2": {
+      "locked_version": "1.8.14"
     }
   }
 }

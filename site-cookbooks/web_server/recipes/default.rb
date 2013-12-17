@@ -8,7 +8,9 @@ include_recipe "sakura::iptables_pre"
 # workaround: simple_iptables don't support multiple direction
 iptables_web_server_arr = [
   "-m state --state NEW -m tcp -p tcp --dport 80",
-  "-m state --state NEW -m tcp -p tcp --dport 443"
+  "-m state --state NEW -m tcp -p tcp --dport 443",
+  # munin-node
+  "-m state --state NEW -m tcp -p tcp --dport 4949"
 ]
 
 simple_iptables_rule "RH-Firewall-1-INPUT" do

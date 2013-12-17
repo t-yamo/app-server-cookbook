@@ -19,6 +19,7 @@ The developers and the operators uses Dev server as start of operations.
     * installed on sakura
         * postfix
     * role:base
+        * recipe:yum::epel
         * recipe:initial_user
             * group : staff
             * user  : devuser
@@ -43,6 +44,7 @@ The developers and the operators uses Dev server as start of operations.
     * installed on sakura
         * postfix
     * role:base
+        * recipe:yum::epel
         * initial_user
             * group : staff
             * user  : devuser
@@ -62,6 +64,7 @@ The developers and the operators uses Dev server as start of operations.
 * 172.20.10.13 DB server / Storage server
  * role:db_server
     * role:base
+        * recipe:yum::epel
         * initial_user
             * group : staff
             * user  : devuser
@@ -122,6 +125,8 @@ But this cookbooks revoke ssh login from root, you should use `knife solo cook d
  * upload id_rsa_devuser to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/devuser/id_rsa
  * upload id_rsa_devuser.pub to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/devuser/id_rsa.pub
  * upload id_rsa_gitolite_admin.pub to ~/work/app-server-cookbook/site-cookbooks/**gitolite**/files/default/gitolite/admin.pub
+ * **replace `htpasswd` in ~/work/app-server-cookbook/data_bags/users/munin.json**
+    * You can generate password by `htpasswd -ns munin` (need apache)
  * $ `cd ~/work/app-server-cookbook`
  * $ `berks install --path cookbooks`
  * $ `knife solo cook root@localhost` # From the second time, root -> devuser

@@ -3,7 +3,8 @@ name :web_server
 run_list(
   "role[base]",
   "recipe[web_server]",
-  "role[web]"
+  "role[web]",
+  "role[monitoring_target]"
 )
 
 default_attributes(

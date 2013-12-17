@@ -12,7 +12,11 @@ iptables_web_server_arr = [
   "-m state --state NEW -m tcp -p tcp --dport 443",
   # for db server
   # MySQL
-  "-m state --state NEW -m tcp -p tcp --dport 3306"
+  "-m state --state NEW -m tcp -p tcp --dport 3306",
+  # munin server
+  "-m state --state NEW -m tcp -p tcp --dport 8080",
+  # munin-node
+  "-m state --state NEW -m tcp -p tcp --dport 4949"
 ]
 
 simple_iptables_rule "RH-Firewall-1-INPUT" do

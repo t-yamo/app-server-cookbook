@@ -3,7 +3,8 @@ name :db_server
 run_list(
   "role[base]",
   "recipe[nfs::server]",
-  "recipe[db_server]"
+  "recipe[db_server]",
+  "role[monitoring_target]"
 )
 
 default_attributes(
