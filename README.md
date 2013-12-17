@@ -15,57 +15,61 @@ The developers and the operators uses Dev server as start of operations.
     * echo 'options single-request-reopen' >> /etc/resolv.conf
     * bundler
     * chef
- * roles:base
-    * initial_user
-        * group : staff
-        * user  : devuser
-        * /etc/sudoers.d/devuser
-        * ~devuser/.ssh/id_rsa,id_rsa.pub,authorized_keys
-    * openssh
-    * simple_iptables
- * roles:dev_server
-    * dev_server
+ * role:dev_server
+    * installed on sakura
+        * postfix
+    * role:base
+        * recipe:initial_user
+            * group : staff
+            * user  : devuser
+            * /etc/sudoers.d/devuser
+            * ~devuser/.ssh/id_rsa,id_rsa.pub,authorized_keys
+        * recipe:openssh
+        * recipe:simple_iptables
+    * recipe:dev_server
         * iptables for dev server in sakura
-    * gitolite
- * installed on sakura
-    * postfix
+    * recipe:gitolite
+    * roles:partial_web
+        * recipe:nginx (for development, sorry page, munin console)
  * TODO
-    * nginx (for development, sorry page, munin console)
     * php (for development)
     * mysql (for development)
     * munin
     * munin-node
 
 * 172.20.10.12 Web server
- * roles:base
-    * initial_user
-        * group : staff
-        * user  : devuser
-        * /etc/sudoers.d/devuser
-        * ~devuser/.ssh/id_rsa,id_rsa.pub,authorized_keys
-    * openssh
- * roles:web_server
-    * web_server
+ * role:web_server
+    * installed on sakura
+        * postfix
+    * role:base
+        * initial_user
+            * group : staff
+            * user  : devuser
+            * /etc/sudoers.d/devuser
+            * ~devuser/.ssh/id_rsa,id_rsa.pub,authorized_keys
+        * recipe:openssh
+        * recipe:simple_iptables
+    * recipe:web_server
         * iptables for web server in sakura
         * autofs ( /mnt/share )
- * installed on sakura
-    * postfix
+    * role:partial_web
+        * recipe:nginx (for development, sorry page, munin console)
  * TODO
-    * nginx
     * php
     * munin-node
 
 * 172.20.10.13 DB server / Storage server
- * roles:base
-    * initial_user
-        * group : staff
-        * user  : devuser
-        * /etc/sudoers.d/devuser
-        * ~devuser/.ssh/id_rsa,id_rsa.pub,authorized_keys
-    * openssh
- * roles:db_server
-    * nfs::server
-    * db_server
+ * role:db_server
+    * role:base
+        * initial_user
+            * group : staff
+            * user  : devuser
+            * /etc/sudoers.d/devuser
+            * ~devuser/.ssh/id_rsa,id_rsa.pub,authorized_keys
+        * recipe:openssh
+        * recipe:simple_iptables
+    * recipe:nfs::server
+    * recipe:db_server
         * iptables for db server in sakura
         * nfs ( /exports )
  * TODO
