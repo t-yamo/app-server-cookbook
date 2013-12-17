@@ -30,7 +30,6 @@ The developers and the operators uses Dev server as start of operations.
  * installed on sakura
     * postfix
  * TODO
-    * gitolite
     * nginx (for development, sorry page, munin console)
     * php (for development)
     * mysql (for development)
