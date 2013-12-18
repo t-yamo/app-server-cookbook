@@ -5,13 +5,13 @@ include_recipe 'mysql::server'
 
 mysql_data = Chef::EncryptedDataBagItem.load("passwords", "mysql")
 
-template '/etc/mysql_grants.sql' do
+template '/etc/mysql_grants_wrap.sql' do
   source 'grants.sql.erb'
   owner  'root'
   group  'root'
   mode   '0600'
   action :create
-  notifies :run, 'execute[install-grants]', :immediately
+  notifies :run, 'execute[install-grants-wrap]', :immediately
   variables({
     :server_debian_password => mysql_data["server_debian_password"],
     :server_root_password   => mysql_data["server_root_password"],
@@ -19,9 +19,10 @@ template '/etc/mysql_grants.sql' do
   })
 end
 
-cmd = install_grants_cmd
-#cmd = "/usr/bin/mysql -u root -p#{mysql_data['server_root_password']} < /etc/mysql_grants.sql"
-execute 'install-grants' do
+#cmd = install_grants_cmd
+#cmd = "/usr/bin/mysql -u root -p#{mysql_data['server_root_password']} < /etc/mysql_grants_wrap.sql"
+cmd = "/usr/bin/mysql -u root -p#{node['mysql']['server_root_password']} < /etc/mysql_grants_wrap.sql"
+execute 'install-grants-wrap' do
   command cmd
   action :nothing
   notifies :restart, 'service[mysql]', :immediately

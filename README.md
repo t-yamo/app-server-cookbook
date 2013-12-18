@@ -198,6 +198,11 @@ But this cookbooks revoke ssh login from root, you should use `knife solo cook d
  * Enabled `PasswordAuthentication`, `RSAAuthentication` and `PubkeyAuthentication`.
  * devuser can sudo without password (with `NOPASSWD` option).
 
+* knowledge
+ * If you wan to reinstall mysql, preprocess steps are as follows:
+    * $ `sudo yum remove -y mysql`
+    * $ `sudo rm -rf /var/lib/mysql/;sudo rm /etc/mysql_grants*.sql;sudo rm /etc/my.cnf`
+
 ## Refs.
 
 * http://www.slideshare.net/JulianDunn/beginner-chef-antipatterns
