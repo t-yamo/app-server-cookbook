@@ -1,6 +1,7 @@
 name :base
 
 run_list(
+  "recipe[yum::remi]",
   "recipe[yum::epel]",
   "recipe[initial_users]",
   "recipe[openssh]",

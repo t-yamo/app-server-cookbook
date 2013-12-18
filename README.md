@@ -19,6 +19,7 @@ The developers and the operators uses Dev server as start of operations.
     * installed on sakura
         * postfix
     * role:base
+        * recipe: yum::remi
         * recipe: yum::epel
         * recipe:initial_user
             * group : staff
@@ -48,6 +49,7 @@ The developers and the operators uses Dev server as start of operations.
     * installed on sakura
         * postfix
     * role:base
+        * recipe: yum::remi
         * recipe: yum::epel
         * initial_user
             * group : staff
@@ -71,6 +73,7 @@ The developers and the operators uses Dev server as start of operations.
 * 172.20.10.13 DB server / Storage server
  * role:db_server
     * role:base
+        * recipe: yum::remi
         * recipe: yum::epel
         * initial_user
             * group : staff
