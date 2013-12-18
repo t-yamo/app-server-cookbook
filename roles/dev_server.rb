@@ -5,7 +5,11 @@ run_list(
   "recipe[dev_server]",
   "role[repository]",
   "role[web]",
+  "role[db]",
   "role[monitoring_server]",
   "role[monitoring]"
+)
+
+default_attributes(
 )
 

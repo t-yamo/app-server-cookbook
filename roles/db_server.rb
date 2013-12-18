@@ -4,6 +4,7 @@ run_list(
   "role[base]",
   "recipe[nfs::server]",
   "recipe[db_server]",
+  "role[db]",
   "role[monitoring]"
 )
 

@@ -7,4 +7,5 @@ cookbook 'nfs'
 cookbook 'nginx'
 cookbook 'munin'
 cookbook 'php'
+cookbook 'mysql'
 

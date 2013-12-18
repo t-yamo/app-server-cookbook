@@ -15,6 +15,9 @@ The developers and the operators uses Dev server as start of operations.
     * echo 'options single-request-reopen' >> /etc/resolv.conf
     * bundler
     * chef
+    * knife-solo
+    * berkshelf
+    * knife-solo_data_bag
  * role:dev_server
     * installed on sakura
         * postfix
@@ -37,12 +40,13 @@ The developers and the operators uses Dev server as start of operations.
     * role:web
         * recipe:nginx (for development, sorry page, munin console)
         * recipe:php (for development)
+    * role:db
+        * recipe:mysql_wrapper::server (for development)
     * role:monitoring_server
         * recipe:munin_wrapper::server
     * role:monitoring
         * recipe:munin_wrapper::client
  * TODO
-    * mysql (for development)
 
 * 172.20.10.12 Web server
  * role:web_server
@@ -88,10 +92,11 @@ The developers and the operators uses Dev server as start of operations.
             * perl-core
         * iptables for db server in sakura
         * nfs ( /exports )
+    * role:db
+        * recipe:mysql_wrapper::server
     * role:monitoring
         * recipe:munin_wrapper::client
  * TODO
-    * mysql
 
 ## Setup
 
@@ -121,6 +126,10 @@ The developers and the operators uses Dev server as start of operations.
       <td>id_rsa_gitolite_admin.pub</td>
       <td>public key for admin (gitolite user)</td>
     </tr>
+    <tr>
+      <td>encrypted_data_bag_secret</td>
+      <td>refs. http://docs.opscode.com/essentials_data_bags.html (for password of mysql)</td>
+    </tr>
   </tbody>
 </table>
 
@@ -142,9 +151,15 @@ But this cookbooks revoke ssh login from root, you should use `knife solo cook d
  * upload id_rsa_devuser to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/devuser/id_rsa
  * upload id_rsa_devuser.pub to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/devuser/id_rsa.pub
  * upload id_rsa_gitolite_admin.pub to ~/work/app-server-cookbook/site-cookbooks/**gitolite**/files/default/gitolite/admin.pub
+ * upload encrypted_data_bag_secret to /etc/chef/encrypted_data_bag_secret
+    * generate by `openssl rand -base64 512 | tr -d '\\r\\n' > /etc/chef/encrypted_data_bag_secret`
  * **replace `htpasswd` in ~/work/app-server-cookbook/data_bags/users/munin.json**
     * You can generate password by `htpasswd -ns munin` (need apache)
  * $ `cd ~/work/app-server-cookbook`
+ * $ `knife solo data bag create passwords mysql`
+    * need /etc/chef/encrypted_data_bag_secret
+    * If you want show, use `knife solo data bag show passwords mysql`
+    * If you want edit, use `knife solo data bag edit passwords mysql`
  * $ `berks install --path cookbooks`
  * $ `knife solo cook root@localhost` # From the second time, root -> devuser
     * **WARN: You can no longer ssh login as root. Please use devuser.**

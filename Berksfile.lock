@@ -24,6 +24,9 @@
     "php": {
       "locked_version": "1.2.6"
     },
+    "mysql": {
+      "locked_version": "4.0.10"
+    },
     "iptables": {
       "locked_version": "0.12.0"
     },
@@ -53,9 +56,6 @@
     },
     "xml": {
       "locked_version": "1.2.0"
-    },
-    "mysql": {
-      "locked_version": "4.0.10"
     },
     "openssl": {
       "locked_version": "1.1.0"

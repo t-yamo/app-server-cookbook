@@ -43,6 +43,6 @@ echo 'options single-request-reopen' >> /etc/resolv.conf
 # install chef, knife-solo, berkshelf and bundler by rbenv
 gem install bundler --no-ri --no-rdoc
 rbenv rehash
-gem install chef knife-solo berkshelf --no-ri --no-rdoc
+gem install chef knife-solo berkshelf knife-solo_data_bag --no-ri --no-rdoc
 rbenv rehash
 
