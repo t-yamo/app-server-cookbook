@@ -158,10 +158,8 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
  * (Case: vagrant) Execute `vagrant up` in `"initializer"`, and login to dev as root.
  * (Case: not vagrant) Login to dev as root, and execute `initializer/setup.sh`
 
-```
 You can `knife solo cook root@targethost` as root for the first time.
 But this cookbooks revoke ssh login from root, you should use `knife solo cook devuser@targethost` as devuser from the second time.
-```
 
 * As root in Dev (From the second time, root -> devuser)
  * $ `mkdir ~/work`
