@@ -43,8 +43,9 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
         * recipe:nginx (for development, sorry page, munin console)
         * recipe:mysql::client (for development)
         * recipe:php (for development)
-        * recipe:php::module_mysql (for development)
-        * recipe:php::module_fpdf (for development)
+        * recipe:php::module_mysql
+        * recipe:php::module_fpdf
+        * recipe:logrotate::nginx
     * role:db
         * recipe:mysql_wrapper::server (for development)
     * role:monitoring_server
@@ -52,7 +53,6 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
     * role:monitoring
         * recipe:munin_wrapper::client
  * TODO
-    * logrotate
     * backup
 
 * 172.20.10.12 Web server
@@ -80,10 +80,10 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
         * recipe:php
         * recipe:php::module_mysql
         * recipe:php::module_fpdf
+        * recipe:logrotate::nginx
     * role:monitoring
         * recipe:munin_wrapper::client
  * TODO
-    * logrotate
 
 * 172.20.10.13 DB server / Storage server
  * role:db_server

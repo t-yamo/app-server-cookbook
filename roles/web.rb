@@ -5,7 +5,8 @@ run_list(
   "recipe[mysql::client]",
   "recipe[php]",
   "recipe[php::module_mysql]",
-  "recipe[php::module_fpdf]"
+  "recipe[php::module_fpdf]",
+  "recipe[logrotate::nginx]"
 )
 
 default_attributes(
@@ -13,7 +14,7 @@ default_attributes(
     :version => "1.4.4",
     :install_method => "source",
     :source => {
-      :version => "1.4.4",
+      :version => "1.4.4"
     },
     :worker_processes => 2,
     :configure_flags => %w[
