@@ -117,6 +117,20 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
  * TODO
     * backup
 
+## Account
+
+* OS
+ * root
+ * devuser
+ * (vagrant)
+
+* MySQL
+ * root
+ * repl
+
+* munin console
+ * munin
+
 ## Setup
 
 ### Files
