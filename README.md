@@ -40,6 +40,7 @@ The developers and the operators uses Dev server as start of operations.
     * role:web
         * recipe:nginx (for development, sorry page, munin console)
         * recipe:php (for development)
+        * recipe:mysql::client (for development)
     * role:db
         * recipe:mysql_wrapper::server (for development)
     * role:monitoring_server
@@ -72,6 +73,7 @@ The developers and the operators uses Dev server as start of operations.
     * role:web
         * recipe:nginx
         * recipe:php
+        * recipe:mysql::client
     * role:monitoring
         * recipe:munin_wrapper::client
  * TODO
@@ -206,11 +208,13 @@ But this cookbooks revoke ssh login from root, you should use `knife solo cook d
 * Security Issues
  * Enabled `PasswordAuthentication`, `RSAAuthentication` and `PubkeyAuthentication`.
  * devuser can sudo without password (with `NOPASSWD` option).
+ * bind-address in /etc/my.cnf is "0.0.0.0" (accept remote access from all interfaces)
 
 * knowledge
- * If you wan to reinstall mysql, preprocess steps are as follows:
-    * $ `sudo yum remove -y mysql`
-    * $ `sudo rm -rf /var/lib/mysql/;sudo rm /etc/mysql_grants*.sql;sudo rm /etc/my.cnf`
+ * recipe:mysql_wrapper is not idempotent.
+    * If you want to reinstall mysql, preprocess steps are as follows:
+        * $ `sudo yum remove -y mysql`
+        * $ `sudo rm -rf /var/lib/mysql/;sudo rm /etc/mysql_grants*.sql;sudo rm /etc/my.cnf`
 
 ## Refs.
 

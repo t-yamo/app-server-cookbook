@@ -3,7 +3,10 @@
 
 # dummy data for cookbook mysql.
 # mysql_wrapper will overwrite them by another recipe.
-default["mysql"]["server_debian_password"] = "password"
-default["mysql"]["server_root_password"]   = "password"
-default["mysql"]["server_repl_password"]   = "password"
+default["mysql"]["server_debian_password"]    = "password"
+default["mysql"]["server_root_password"]      = "password"
+default["mysql"]["server_repl_password"]      = "password"
+
+# add for mysql_wrapper.
+default["mysql_wrapper"]["repl_network_acl"]  = "%"
 

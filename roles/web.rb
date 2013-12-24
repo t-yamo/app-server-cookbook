@@ -2,7 +2,8 @@ name :web
 
 run_list(
   "recipe[nginx]",
-  "recipe[php]"
+  "recipe[php]",
+  "recipe[mysql::client]"
 )
 
 default_attributes(
