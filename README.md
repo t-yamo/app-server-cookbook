@@ -120,19 +120,19 @@ The developers and the operators uses Dev server as start of operations.
   <tbody>
     <tr>
       <td>id_rsa_devuser</td>
-      <td>private key for devuser (OS user)</td>
+      <td>Private key for devuser (OS user)</td>
     </tr>
     <tr>
       <td>id_rsa_devuser.pub</td>
-      <td>public key for devuser (OS user)</td>
+      <td>Public key for devuser (OS user)</td>
     </tr>
     <tr>
       <td>id_rsa_gitolite_admin</td>
-      <td>private key for admin (gitolite user)</td>
+      <td>Private key for admin (gitolite user)</td>
     </tr>
     <tr>
       <td>id_rsa_gitolite_admin.pub</td>
-      <td>public key for admin (gitolite user)</td>
+      <td>Public key for admin (gitolite user)</td>
     </tr>
     <tr>
       <td>encrypted_data_bag_secret</td>
@@ -144,8 +144,8 @@ The developers and the operators uses Dev server as start of operations.
 ### Step
 
 * Startup
- * (Case: vagrant) execute `vagrant up` in `"initializer"`, and login to dev as root.
- * (Case: not vagrant) login to dev as root, and execute `initializer/setup.sh`
+ * (Case: vagrant) Execute `vagrant up` in `"initializer"`, and login to dev as root.
+ * (Case: not vagrant) Login to dev as root, and execute `initializer/setup.sh`
 
 ```
 You can `knife solo cook root@targethost` as root for the first time.
@@ -156,16 +156,18 @@ But this cookbooks revoke ssh login from root, you should use `knife solo cook d
  * $ `mkdir ~/work`
  * $ `cd ~/work`
  * $ `git clone [app-server-cookbook]`
- * upload id_rsa_devuser to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/devuser/id_rsa
- * upload id_rsa_devuser.pub to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/devuser/id_rsa.pub
- * upload id_rsa_gitolite_admin.pub to ~/work/app-server-cookbook/site-cookbooks/**gitolite**/files/default/gitolite/admin.pub
- * upload encrypted_data_bag_secret to /etc/chef/encrypted_data_bag_secret
-    * generate by `openssl rand -base64 512 | tr -d '\\r\\n' > /etc/chef/encrypted_data_bag_secret`
- * **replace `htpasswd` in ~/work/app-server-cookbook/data_bags/users/munin.json**
+ * Upload id_rsa_devuser to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/devuser/id_rsa
+ * Upload id_rsa_devuser.pub to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/devuser/id_rsa.pub
+ * Upload id_rsa_gitolite_admin.pub to ~/work/app-server-cookbook/site-cookbooks/**gitolite**/files/default/gitolite/admin.pub
+ * Upload encrypted_data_bag_secret to /etc/chef/encrypted_data_bag_secret
+    * Generate by `openssl rand -base64 512 | tr -d '\\r\\n' > /etc/chef/encrypted_data_bag_secret`
+ * **Replace `htpasswd` in ~/work/app-server-cookbook/data_bags/users/munin.json**
     * You can generate password by `htpasswd -ns munin` (need apache)
+ * Replace IP address (172.20.10.11, 172.20.10.12, 172.20.10.13) and network address (172.20.10.0/24) to your environment.
+    * In roles/ and nodes/
  * $ `cd ~/work/app-server-cookbook`
  * $ `knife solo data bag create passwords mysql`
-    * need /etc/chef/encrypted_data_bag_secret
+    * Need /etc/chef/encrypted_data_bag_secret
     * If you want show, use `knife solo data bag show passwords mysql`
     * If you want edit, use `knife solo data bag edit passwords mysql`
  * $ `berks install --path cookbooks`
@@ -180,10 +182,10 @@ But this cookbooks revoke ssh login from root, you should use `knife solo cook d
         * Enter the root password about 10 times.
         * If you created trusted user (e.g. devuser), you can skip entering password.
 
-### checkout configuration repository for gitolite
+### Checkout configuration repository for gitolite
 
  * `git clone gitolite@172.20.10.11:gitolite-admin`
-     * use id_rsa_gitolite_admin.
+     * Use id_rsa_gitolite_admin.
 
 ### Windows (untested)
 
