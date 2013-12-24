@@ -5,6 +5,8 @@
 These cookbooks are configurations for Dev/Web/DB servers.
 The developers and the operators uses Dev server as start of operations.
 
+Target environment is CentOS 6 (Vagrant or Sakura VPS).
+
 * 172.20.10.11 Dev server ( for development and operation )
  * script:initializer/setup.sh
     * git
