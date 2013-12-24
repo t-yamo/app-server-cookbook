@@ -47,6 +47,8 @@ The developers and the operators uses Dev server as start of operations.
     * role:monitoring
         * recipe:munin_wrapper::client
  * TODO
+    * logrotate
+    * backup
 
 * 172.20.10.12 Web server
  * role:web_server
@@ -73,9 +75,12 @@ The developers and the operators uses Dev server as start of operations.
     * role:monitoring
         * recipe:munin_wrapper::client
  * TODO
+    * logrotate
 
 * 172.20.10.13 DB server / Storage server
  * role:db_server
+    * installed on sakura
+        * postfix
     * role:base
         * recipe: yum::remi
         * recipe: yum::epel
@@ -94,9 +99,12 @@ The developers and the operators uses Dev server as start of operations.
         * nfs ( /exports )
     * role:db
         * recipe:mysql_wrapper::server
+    * role:batch
+        * recipe:php
     * role:monitoring
         * recipe:munin_wrapper::client
  * TODO
+    * backup
 
 ## Setup
 
