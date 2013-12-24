@@ -163,8 +163,7 @@ But this cookbooks revoke ssh login from root, you should use `knife solo cook d
     * Generate by `openssl rand -base64 512 | tr -d '\\r\\n' > /etc/chef/encrypted_data_bag_secret`
  * **Replace `htpasswd` in ~/work/app-server-cookbook/data_bags/users/munin.json**
     * You can generate password by `htpasswd -ns munin` (need apache)
- * Replace IP address (172.20.10.11, 172.20.10.12, 172.20.10.13) and network address (172.20.10.0/24) to your environment.
-    * In roles/ and nodes/
+ * Replace IP address (172.20.10.11, 172.20.10.12, 172.20.10.13) and network address (172.20.10.0/24) to your environment. (in roles/ and nodes/)
  * $ `cd ~/work/app-server-cookbook`
  * $ `knife solo data bag create passwords mysql`
     * Need /etc/chef/encrypted_data_bag_secret
@@ -176,7 +175,7 @@ But this cookbooks revoke ssh login from root, you should use `knife solo cook d
     * **WARN: You should try login as devuser before logout from current root session.**
 
 * As devuser in Dev
- * targethost = 172.20.10.12, 172.20.10.13
+ * targethost = 172.20.10.12, 172.20.10.13 (depends on your environment)
     * $ `knife solo prepare root@targethost` # From the second time, root -> devuser
     * $ `knife solo cook root@targethost` # From the second time, root -> devuser
         * Enter the root password about 10 times.
@@ -184,7 +183,7 @@ But this cookbooks revoke ssh login from root, you should use `knife solo cook d
 
 ### Checkout configuration repository for gitolite
 
- * `git clone gitolite@172.20.10.11:gitolite-admin`
+ * `git clone gitolite@172.20.10.11:gitolite-admin` (depends on your environment)
      * Use id_rsa_gitolite_admin.
 
 ### Windows (untested)
