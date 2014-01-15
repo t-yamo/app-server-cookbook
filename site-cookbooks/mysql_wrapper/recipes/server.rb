@@ -28,3 +28,14 @@ execute 'install-grants-wrap' do
   notifies :restart, 'service[mysql]', :immediately
 end
 
+template '/home/devuser/.my.cnf' do
+  source 'devuser_my.cnf'
+  owner  'devuser'
+  group  'staff'
+  mode   '0600'
+  action :create
+  variables({
+    :server_root_password   => mysql_data["server_root_password"]
+  })
+end
+

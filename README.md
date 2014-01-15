@@ -124,7 +124,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
 
 * OS
  * root
- * devuser
+ * devuser (root on MySQL, admin on gitolite)
  * (vagrant)
 
 * MySQL
@@ -133,7 +133,6 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
 
 * gitolite
  * admin
- * devuser
 
 * munin console
  * munin
@@ -152,19 +151,11 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
   <tbody>
     <tr>
       <td>id_rsa_devuser</td>
-      <td>Private key for devuser (OS user)</td>
+      <td>Private key for devuser (OS user) and admin (gitolite user)</td>
     </tr>
     <tr>
       <td>id_rsa_devuser.pub</td>
-      <td>Public key for devuser (OS user)</td>
-    </tr>
-    <tr>
-      <td>id_rsa_gitolite_admin</td>
-      <td>Private key for admin (gitolite user)</td>
-    </tr>
-    <tr>
-      <td>id_rsa_gitolite_admin.pub</td>
-      <td>Public key for admin (gitolite user)</td>
+      <td>Public key for devuser (OS user) and admin (gitolite user)</td>
     </tr>
     <tr>
       <td>encrypted_data_bag_secret</td>
@@ -188,7 +179,7 @@ But this cookbooks revoke ssh login from root, you should use `knife solo cook d
  * $ `git clone [app-server-cookbook]`
  * Upload id_rsa_devuser to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/devuser/id_rsa
  * Upload id_rsa_devuser.pub to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/devuser/id_rsa.pub
- * Upload id_rsa_gitolite_admin.pub to ~/work/app-server-cookbook/site-cookbooks/**gitolite**/files/default/gitolite/admin.pub
+ * Upload id_rsa_devuser.pub to ~/work/app-server-cookbook/site-cookbooks/**gitolite**/files/default/gitolite/admin.pub
  * Upload encrypted_data_bag_secret to /etc/chef/encrypted_data_bag_secret
     * Generate by `openssl rand -base64 512 | tr -d '\\r\\n' > /etc/chef/encrypted_data_bag_secret`
  * **Replace `htpasswd` in ~/work/app-server-cookbook/data_bags/users/munin.json**
@@ -214,7 +205,8 @@ But this cookbooks revoke ssh login from root, you should use `knife solo cook d
 ### Checkout configuration repository for gitolite
 
  * `git clone gitolite@172.20.10.11:gitolite-admin` (depends on your environment)
-     * Use id_rsa_gitolite_admin.
+     * Use id_rsa_devuser.
+         * If you use TortoiseGit, you have to convert id_rsa_devuser (OpenSSH format) to id_rsa_devuser.ppk (PuTTY format) by puttygen.
 
 ### Windows (untested)
 
@@ -236,6 +228,7 @@ But this cookbooks revoke ssh login from root, you should use `knife solo cook d
 * Security Issues
  * Enabled `PasswordAuthentication`, `RSAAuthentication` and `PubkeyAuthentication`.
  * devuser can sudo without password (with `NOPASSWD` option).
+ * devuser is too strong.
  * bind-address in /etc/my.cnf is "0.0.0.0" (accept remote access from all interfaces)
 
 * knowledge

@@ -1,0 +1,3 @@
+[client]
+password=<%= @server_root_password %>
+
