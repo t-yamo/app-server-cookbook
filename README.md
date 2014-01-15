@@ -124,7 +124,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
 
 * OS
  * root
- * devuser (root on MySQL, admin on gitolite)
+ * devuser (root on MySQL (by ~devuser/.my.cnf), admin on gitolite (by gitolite@gitlite-admin:keydir/admin.pub))
  * (vagrant)
 
 * MySQL
