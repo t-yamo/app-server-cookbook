@@ -131,6 +131,10 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
  * root
  * repl
 
+* gitolite
+ * admin
+ * devuser
+
 * munin console
  * munin
 
