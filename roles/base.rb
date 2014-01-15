@@ -34,6 +34,13 @@ default_attributes(
       :x11_forwarding => "yes",
       :subsystem => "sftp    /usr/libexec/openssh/sftp-server"
     }
+  },
+  :base => {
+    :hosts => [
+      { :ipaddr => "172.20.10.11", :hostname => "dev01" },
+      { :ipaddr => "172.20.10.12", :hostname => "web01" },
+      { :ipaddr => "172.20.10.13", :hostname => "db01" }
+    ]
   }
 )
 

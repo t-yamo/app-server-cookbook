@@ -5,6 +5,10 @@
 
 include_recipe "sakura::packages"
 
+## hosts
+
+include_recipe "sakura::hosts"
+
 ## simple_iptables
 
 include_recipe "sakura::iptables_pre"

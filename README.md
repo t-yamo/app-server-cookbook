@@ -7,7 +7,7 @@ The developers and the operators uses Dev server as start of operations.
 
 Target environment is CentOS 6 (Vagrant or Sakura VPS).
 
-* 172.20.10.11 Dev server ( for development and operation )
+* 172.20.10.11 dev01 - Dev server ( for development and operation )
  * script:initializer/setup.sh
     * git
     * group : staff
@@ -36,6 +36,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
     * recipe:dev_server
         * install packages
             * perl-core
+        * hosts
         * iptables for dev server in sakura
     * role:repository
         * recipe:gitolite
@@ -55,7 +56,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
  * TODO
     * backup
 
-* 172.20.10.12 Web server
+* 172.20.10.12 web01 - Web server
  * role:web_server
     * installed on sakura
         * postfix
@@ -72,6 +73,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
     * recipe:web_server
         * install packages
             * perl-core
+        * hosts
         * iptables for web server in sakura
         * autofs ( /mnt/share )
     * role:web
@@ -85,7 +87,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
         * recipe:munin_wrapper::client
  * TODO
 
-* 172.20.10.13 DB server / Storage server
+* 172.20.10.13 db01 - DB server / Storage server
  * role:db_server
     * installed on sakura
         * postfix
@@ -103,6 +105,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
     * recipe:db_server
         * install packages
             * perl-core
+        * hosts
         * iptables for db server in sakura
         * nfs ( /exports )
     * role:db
@@ -198,7 +201,7 @@ But this cookbooks revoke ssh login from root, you should use `knife solo cook d
     * **WARN: You should try login as devuser before logout from current root session.**
 
 * As devuser in Dev
- * targethost = 172.20.10.12, 172.20.10.13 (depends on your environment)
+ * targethost = web01, db01 (depends on your environment)
     * $ `knife solo prepare root@targethost` # From the second time, root -> devuser
     * $ `knife solo cook root@targethost` # From the second time, root -> devuser
         * Enter the root password about 10 times.

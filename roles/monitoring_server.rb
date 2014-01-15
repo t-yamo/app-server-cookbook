@@ -12,9 +12,9 @@ default_attributes(
   },
   :munin_wrapper => {
     :munin_clients => [
-      { :fqdn => "dev", :ipaddress => "172.20.10.11" },
-      { :fqdn => "web", :ipaddress => "172.20.10.12" },
-      { :fqdn => "db",  :ipaddress => "172.20.10.13" }
+      { :fqdn => "dev01", :ipaddress => "172.20.10.11" },
+      { :fqdn => "web01", :ipaddress => "172.20.10.12" },
+      { :fqdn => "db01",  :ipaddress => "172.20.10.13" }
     ]
   }
 )
