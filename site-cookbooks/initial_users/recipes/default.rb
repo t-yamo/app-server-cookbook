@@ -50,3 +50,19 @@ cookbook_file "/home/" + node["initial_users"]["dev_user"] + "/.ssh/authorized_k
   mode     0600
 end
 
+# for backup
+
+directory "/home/" + node["initial_users"]["dev_user"] + "/backup/dev" do
+  owner    node["initial_users"]["dev_user"]
+  group    "staff"
+  mode     0755
+  recursive true
+end
+
+directory "/home/" + node["initial_users"]["dev_user"] + "/backup/db" do
+  owner    node["initial_users"]["dev_user"]
+  group    "staff"
+  mode     0755
+  recursive true
+end
+
