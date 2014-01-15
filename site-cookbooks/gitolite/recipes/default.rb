@@ -51,6 +51,5 @@ execute HOME + "/bin/gitolite setup -pk " + ADMIN + ".pub" do
   group GITOLITE
   cwd   HOME
   environment "HOME" => HOME
-  creates HOME + "/.gitolite"
 end
 
