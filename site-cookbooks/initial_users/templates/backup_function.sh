@@ -1,6 +1,8 @@
 #!/bin/bash
 
 devuser=devuser
+dev_server=dev01
+db_server=db01
 
 tstamp=`date '+%Y%m%d%H%M%S'`
 

@@ -19,35 +19,35 @@ end
 file "/etc/sudoers.d/" + node["initial_users"]["dev_user"] do
   owner    "root"
   group    "root"
-  mode     0400
+  mode     "0400"
   content  node["initial_users"]["dev_user"] + " ALL=(ALL) NOPASSWD:ALL"
 end
 
 directory "/home/" + node["initial_users"]["dev_user"] + "/.ssh" do
   owner    node["initial_users"]["dev_user"]
   group    "staff"
-  mode     0700
+  mode     "0700"
 end
 
 cookbook_file "/home/" + node["initial_users"]["dev_user"] + "/.ssh/id_rsa" do
   source   node["initial_users"]["dev_user"] + "/id_rsa"
   owner    node["initial_users"]["dev_user"]
   group    "staff"
-  mode     0600
+  mode     "0600"
 end
 
 cookbook_file "/home/" + node["initial_users"]["dev_user"] + "/.ssh/id_rsa.pub" do
   source   node["initial_users"]["dev_user"] + "/id_rsa.pub"
   owner    node["initial_users"]["dev_user"]
   group    "staff"
-  mode     0644
+  mode     "0644"
 end
 
 cookbook_file "/home/" + node["initial_users"]["dev_user"] + "/.ssh/authorized_keys" do
   source   node["initial_users"]["dev_user"] + "/id_rsa.pub"
   owner    node["initial_users"]["dev_user"]
   group    "staff"
-  mode     0600
+  mode     "0600"
 end
 
 # for backup
@@ -55,14 +55,14 @@ end
 directory "/home/" + node["initial_users"]["dev_user"] + "/backup/dev" do
   owner    node["initial_users"]["dev_user"]
   group    "staff"
-  mode     0755
+  mode     "0755"
   recursive true
 end
 
 directory "/home/" + node["initial_users"]["dev_user"] + "/backup/db" do
   owner    node["initial_users"]["dev_user"]
   group    "staff"
-  mode     0755
+  mode     "0755"
   recursive true
 end
 

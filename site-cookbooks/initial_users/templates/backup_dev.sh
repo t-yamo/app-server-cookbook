@@ -20,7 +20,7 @@ tar cvfz ${backup_dev_dir}/${archive_file} ${tstamp} || script_failed
 popd
 
 truncate_archive ${backup_dev_dir} || script_failed
-rsync_backup 22 ${backup_dev_dir} db01:${backup_dev_dir} || script_failed
+rsync_backup 22 ${backup_dev_dir} ${db_server}:${backup_dev_dir} || script_failed
 
 popd
 

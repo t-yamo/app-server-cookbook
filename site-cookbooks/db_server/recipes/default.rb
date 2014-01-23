@@ -36,7 +36,7 @@ include_recipe "sakura::iptables_post"
 directory node["db_server"]["shared_dir_server"] do
   owner "root"
   group "staff"
-  mode 02775
+  mode  "2775"
 end
 
 nfs_export node["db_server"]["shared_dir_server"] do

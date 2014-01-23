@@ -20,7 +20,7 @@ cookbook_file HOME + "/" + ADMIN + ".pub" do
   source   GITOLITE + "/" + ADMIN + ".pub"
   owner    GITOLITE
   group    GITOLITE
-  mode     0644
+  mode     "0644"
 end
 
 # install

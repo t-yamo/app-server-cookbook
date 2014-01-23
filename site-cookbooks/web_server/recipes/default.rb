@@ -34,7 +34,7 @@ include_recipe "sakura::iptables_post"
 directory "/mnt/#{node["web_server"]["shared_dir_client"]}" do
   owner "root"
   group "staff"
-  mode 02775
+  mode  "2775"
 end
 
 package "autofs" do
