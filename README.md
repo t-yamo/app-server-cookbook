@@ -39,6 +39,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
             * perl-core
         * hosts
         * iptables for dev server in sakura
+        * cron for backup_dev
     * role:repository
         * recipe:gitolite
     * role:web
@@ -55,7 +56,6 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
     * role:monitoring
         * recipe:munin_wrapper::client
  * TODO
-    * backup
 
 * 172.20.10.12 web01 - Web server
  * role:web_server
@@ -111,6 +111,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
         * hosts
         * iptables for db server in sakura
         * nfs ( /exports )
+        * cron for backup_db
     * role:db
         * recipe:mysql_wrapper::server
     * role:batch
@@ -121,7 +122,6 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
     * role:monitoring
         * recipe:munin_wrapper::client
  * TODO
-    * backup
 
 ## Account
 
