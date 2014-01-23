@@ -52,18 +52,22 @@ end
 
 # for backup
 
+directory "/home/" + node["initial_users"]["dev_user"] + "/backup" do
+  owner    node["initial_users"]["dev_user"]
+  group    "staff"
+  mode     "0755"
+end
+
 directory "/home/" + node["initial_users"]["dev_user"] + "/backup/dev" do
   owner    node["initial_users"]["dev_user"]
   group    "staff"
   mode     "0755"
-  recursive true
 end
 
 directory "/home/" + node["initial_users"]["dev_user"] + "/backup/db" do
   owner    node["initial_users"]["dev_user"]
   group    "staff"
   mode     "0755"
-  recursive true
 end
 
 directory "/home/" + node["initial_users"]["dev_user"] + "/shell" do

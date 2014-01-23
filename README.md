@@ -228,6 +228,9 @@ But this cookbooks revoke ssh login from root, you should use `knife solo cook d
         * Enter the root password about 10 times.
         * If you created trusted user (e.g. devuser), you can skip entering password.
 
+* As devuser in Dev / Web / DB
+ * `ssh dev01`, `ssh web01`, `ssh db01` and answer `yes` for update known_hosts.
+
 ### Checkout configuration repository for gitolite
 
  * `git clone gitolite@172.20.10.11:gitolite-admin` (depends on your environment)
