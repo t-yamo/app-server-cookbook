@@ -26,7 +26,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
     * role:base
         * recipe: yum::remi
         * recipe: yum::epel
-        * recipe:initial_user
+        * recipe:initial_users
             * group : staff
             * user  : devuser
             * /etc/sudoers.d/devuser
@@ -64,7 +64,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
     * role:base
         * recipe: yum::remi
         * recipe: yum::epel
-        * initial_user
+        * initial_users
             * group : staff
             * user  : devuser
             * /etc/sudoers.d/devuser
@@ -96,7 +96,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
     * role:base
         * recipe: yum::remi
         * recipe: yum::epel
-        * initial_user
+        * initial_users
             * group : staff
             * user  : devuser
             * /etc/sudoers.d/devuser

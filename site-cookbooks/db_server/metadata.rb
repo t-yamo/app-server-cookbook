@@ -1,3 +1,3 @@
 depends "sakura"
-depends "initial_user"
+depends "initial_users"
 

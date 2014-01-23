@@ -66,6 +66,12 @@ directory "/home/" + node["initial_users"]["dev_user"] + "/backup/db" do
   recursive true
 end
 
+directory "/home/" + node["initial_users"]["dev_user"] + "/shell" do
+  owner    node["initial_users"]["dev_user"]
+  group    "staff"
+  mode     "0755"
+end
+
 template "/home/" + node["initial_users"]["dev_user"] + "/shell/backup_function.sh" do
   source   "backup_function.sh.erb"
   owner    node["initial_users"]["dev_user"]
