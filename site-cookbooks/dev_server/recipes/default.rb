@@ -35,3 +35,14 @@ end
 
 include_recipe "sakura::iptables_post"
 
+## backup
+
+cron "backup_dev" do
+  minute   "40"
+  hour     "2"
+  user     node["initial_users"]["dev_user"]
+  mailto   node["initial_users"]["dev_user"]
+  command  "/home/" + node["initial_users"]["dev_user"] + "/shell/backup_dev.sh"
+  only_if do File.exists?("/home/" + node["initial_users"]["dev_user"] + "/shell/backup_dev.sh") end
+end
+

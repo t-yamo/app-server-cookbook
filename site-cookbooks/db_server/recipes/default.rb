@@ -46,3 +46,14 @@ nfs_export node["db_server"]["shared_dir_server"] do
   options [ "root_squash" ]
 end
 
+## backup
+
+cron "backup_db" do
+  minute   "40"
+  hour     "2"
+  user     node["initial_users"]["dev_user"]
+  mailto   node["initial_users"]["dev_user"]
+  command  "/home/" + node["initial_users"]["dev_user"] + "/shell/backup_db.sh"
+  only_if do File.exists?("/home/" + node["initial_users"]["dev_user"] + "/shell/backup_db.sh") end
+end
+

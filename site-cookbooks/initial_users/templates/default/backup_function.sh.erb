@@ -1,16 +1,16 @@
 #!/bin/bash
 
-devuser=devuser
-dev_server=dev01
-db_server=db01
+dev_user=<%= node["initial_users"]["dev_user"] %>
+dev_server=<%= node["initial_users"]["dev_server"] %>
+db_server=<%= node["initial_users"]["db_user"] %>
 
 tstamp=`date '+%Y%m%d%H%M%S'`
 
-work_base_dir="/home/${devuser}/backup_work"
+work_base_dir="/home/${dev_user}/backup_work"
 work_dir="${work_base_dir}/${tstamp}"
 
-backup_dev_dir="/home/${devuser}/backup/dev"
-backup_db_dir="/home/${devuser}/backup/db"
+backup_dev_dir="/home/${dev_user}/backup/dev"
+backup_db_dir="/home/${dev_user}/backup/db"
 
 archive_file="${tstamp}.tar.gz"
 archive_num=30

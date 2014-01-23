@@ -31,6 +31,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
             * user  : devuser
             * /etc/sudoers.d/devuser
             * ~devuser/.ssh/id_rsa,id_rsa.pub,authorized_keys
+            * ~devuser/backup,shell
         * recipe:openssh
         * recipe:simple_iptables
     * recipe:dev_server
@@ -68,6 +69,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
             * user  : devuser
             * /etc/sudoers.d/devuser
             * ~devuser/.ssh/id_rsa,id_rsa.pub,authorized_keys
+            * ~devuser/backup,shell
         * recipe:openssh
         * recipe:simple_iptables
     * recipe:web_server
@@ -99,6 +101,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
             * user  : devuser
             * /etc/sudoers.d/devuser
             * ~devuser/.ssh/id_rsa,id_rsa.pub,authorized_keys
+            * ~devuser/backup,shell
         * recipe:openssh
         * recipe:simple_iptables
     * recipe:nfs::server
@@ -144,10 +147,12 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
  * /home/devuser/backup/dev
  * /home/devuser/backup/db
  * /home/devuser/backup_work
+ * /home/devuser/shell
  * /home/gitolite
 
 * Web
  * /home/devuser/.ssh
+ * /home/devuser/shell
  * /mnt/share
 
 * DB
@@ -155,6 +160,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
  * /home/devuser/backup/dev
  * /home/devuser/backup/db
  * /home/devuser/backup_work
+ * /home/devuser/shell
  * /exports
 
 ## Setup
