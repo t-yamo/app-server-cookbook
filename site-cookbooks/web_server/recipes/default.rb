@@ -54,3 +54,7 @@ execute "auto.mnt" do
   command "echo '#{node["web_server"]["shared_dir_client"]} -fstype=nfs,rw #{node["web_server"]["shared_server"]}:#{node["web_server"]["shared_dir_server"]}' > /etc/auto.mnt"
 end
 
+service "autofs" do
+  action :restart
+end
+

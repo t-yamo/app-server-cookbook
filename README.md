@@ -149,6 +149,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
  * /home/devuser/backup_work
  * /home/devuser/shell
  * /home/gitolite
+ * /etc/chef # For encrypted_data_bag_secret.
 
 * Web
  * /home/devuser/.ssh
@@ -198,11 +199,12 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
 
 You can `knife solo cook root@targethost` as root for the first time.
 But this cookbooks revoke ssh login from root, you should use `knife solo cook devuser@targethost` as devuser from the second time.
+If you use devuser, you must clone this cookbook again, and copy id_rsa_devuser and id_rsa_devuser.pub to devuser work directory.
 
 * As root in Dev (From the second time, root -> devuser)
  * $ `mkdir ~/work`
  * $ `cd ~/work`
- * $ `git clone [app-server-cookbook]`
+ * $ `git clone [app-server-cookbook]` # If you registered certificate to repository, you can use git:. Otherwise, you should use https:. 
  * Upload id_rsa_devuser to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/devuser/id_rsa
  * Upload id_rsa_devuser.pub to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/devuser/id_rsa.pub
  * Upload id_rsa_devuser.pub to ~/work/app-server-cookbook/site-cookbooks/**gitolite**/files/default/gitolite/admin.pub
@@ -223,13 +225,15 @@ But this cookbooks revoke ssh login from root, you should use `knife solo cook d
 
 * As devuser in Dev
  * targethost = web01, db01 (depends on your environment)
+    * Start web01 and db01.
     * $ `knife solo prepare root@targethost` # From the second time, root -> devuser
     * $ `knife solo cook root@targethost` # From the second time, root -> devuser
         * Enter the root password about 10 times.
         * If you created trusted user (e.g. devuser), you can skip entering password.
 
 * As devuser in Dev / Web / DB
- * `ssh dev01`, `ssh web01`, `ssh db01` and answer `yes` for update known_hosts.
+ * `ssh localhost`, `ssh dev01`, `ssh web01`, `ssh db01` and answer `yes` at each hosts. # For update known_hosts.
+    * **WARN: Don't forget own hostname (for self login in backup shell).**
 
 ### Checkout configuration repository for gitolite
 
