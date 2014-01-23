@@ -137,6 +137,26 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
 * munin console
  * munin
 
+## Directory
+
+* Dev
+ * /home/devuser/.ssh
+ * /home/devuser/backup/dev
+ * /home/devuser/backup/db
+ * /home/devuser/backup_work
+ * /home/gitolite
+
+* Web
+ * /home/devuser/.ssh
+ * /mnt/share
+
+* DB
+ * /home/devuser/.ssh
+ * /home/devuser/backup/dev
+ * /home/devuser/backup/db
+ * /home/devuser/backup_work
+ * /exports
+
 ## Setup
 
 ### Files
