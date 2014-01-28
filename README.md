@@ -37,6 +37,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
     * recipe:dev_server
         * install packages
             * perl-core
+            * nfs-utils
         * hosts
         * iptables for dev server in sakura
         * cron for backup_dev
@@ -74,6 +75,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
     * recipe:web_server
         * install packages
             * perl-core
+            * nfs-utils
         * hosts
         * iptables for web server in sakura
         * autofs ( /mnt/share )
@@ -106,6 +108,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
     * recipe:db_server
         * install packages
             * perl-core
+            * nfs-utils
         * hosts
         * iptables for db server in sakura
         * nfs ( /exports )
