@@ -31,6 +31,9 @@ echo 'eval "$(rbenv init -)"' >> /etc/profile
 # source global profile
 . /etc/profile
 
+# install openssl-devel
+yum install -y openssl-devel
+
 # install ruby by rbenv
 rbenv install 2.0.0-p353
 rbenv rehash
@@ -45,4 +48,3 @@ gem install bundler --no-ri --no-rdoc
 rbenv rehash
 gem install chef knife-solo berkshelf knife-solo_data_bag --no-ri --no-rdoc
 rbenv rehash
-
