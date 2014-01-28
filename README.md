@@ -47,7 +47,6 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
         * recipe:mysql::client (for development)
         * recipe:php (for development)
         * recipe:php::module_mysql
-        * recipe:php::module_fpdf
         * recipe:logrotate::nginx
     * role:db
         * recipe:mysql_wrapper::server (for development)
@@ -83,7 +82,6 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
         * recipe:mysql::client
         * recipe:php
         * recipe:php::module_mysql
-        * recipe:php::module_fpdf
         * recipe:logrotate::nginx
     * role:monitoring
         * recipe:munin_wrapper::client
@@ -118,7 +116,6 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
         * recipe:mysql::client
         * recipe:php
         * recipe:php::module_mysql
-        * recipe:php::module_fpdf
     * role:monitoring
         * recipe:munin_wrapper::client
  * TODO
@@ -214,12 +211,16 @@ If you use devuser, you must clone this cookbook again, and copy id_rsa_devuser 
     * You can generate password by `htpasswd -ns munin` (need apache)
  * Replace IP address (172.20.10.11, 172.20.10.12, 172.20.10.13) and network address (172.20.10.0/24) to your environment. (in roles/ and nodes/)
  * $ `cd ~/work/app-server-cookbook`
- * $ `knife solo data bag create passwords mysql`
+ * $ `knife solo data bag edit passwords mysql`
     * Need /etc/chef/encrypted_data_bag_secret
     * If you want show, use `knife solo data bag show passwords mysql`
-    * If you want edit, use `knife solo data bag edit passwords mysql`
+    * If you want create, use `knife solo data bag create passwords mysql`
+    * You should set EDITOR. (e.g. export EDITOR=vi)
  * $ `berks install --path cookbooks`
+ * $ `knife solo prepare root@localhost` # From the second time, root -> devuser
  * $ `knife solo cook root@localhost` # From the second time, root -> devuser
+    * Enter the root password about 10 times.
+    * If you created trusted user (e.g. devuser), you can skip entering password.
     * **WARN: You can no longer ssh login as root. Please use devuser.**
     * **WARN: You should try login as devuser before logout from current root session.**
 
