@@ -204,7 +204,7 @@ If you use devuser, you must clone this cookbook again, and copy id_rsa_devuser 
 * As root in Dev (From the second time, root -> devuser)
  * $ `mkdir ~/work`
  * $ `cd ~/work`
- * $ `git clone [app-server-cookbook]` # If you registered certificate to repository, you can use git:. Otherwise, you should use https:. 
+ * $ `git clone [app-server-cookbook]` # If you registered certificate to repository, you can use `git://`. Otherwise, you should use `https://`. 
  * Upload id_rsa_devuser to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/devuser/id_rsa
  * Upload id_rsa_devuser.pub to ~/work/app-server-cookbook/site-cookbooks/initial_users/files/default/devuser/id_rsa.pub
  * Upload id_rsa_devuser.pub to ~/work/app-server-cookbook/site-cookbooks/**gitolite**/files/default/gitolite/admin.pub
@@ -298,4 +298,3 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
-
