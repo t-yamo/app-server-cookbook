@@ -56,6 +56,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
     * role:monitoring
         * recipe:munin_wrapper::client
  * TODO
+    * php-fpm
 
 * 172.20.10.12 web01 - Web server
  * role:web_server
@@ -88,6 +89,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
     * role:monitoring
         * recipe:munin_wrapper::client
  * TODO
+    * php-fpm
 
 * 172.20.10.13 db01 - DB server / Storage server
  * role:db_server
@@ -122,6 +124,7 @@ Target environment is CentOS 6 (Vagrant or Sakura VPS).
     * role:monitoring
         * recipe:munin_wrapper::client
  * TODO
+    * php-fpm
 
 ## Account
 
